@@ -13,7 +13,7 @@ module ``about tuples`` =
     let CreatingTuples() =
         let items = ("apple", "dog")
         
-        Assert.Equal(items, ("apple", __))
+        Assert.Equal(items, ("apple", "dog"))
         
     [<Fact>]
     let AccessingTupleElements() =
@@ -22,8 +22,8 @@ module ``about tuples`` =
         let fruit = fst items
         let animal = snd items
         
-        Assert.Equal(fruit, __)
-        Assert.Equal(animal, __)
+        Assert.Equal(fruit, "apple")
+        Assert.Equal(animal, "dog")
 
     [<Fact>]
     let AccessingTupleElementsWithPatternMatching() =
@@ -40,9 +40,9 @@ module ``about tuples`` =
         
         let fruit, animal, car = items
         
-        Assert.Equal(fruit, __)
-        Assert.Equal(animal, __)
-        Assert.Equal(car, __)
+        Assert.Equal(fruit, "apple")
+        Assert.Equal(animal, "dog")
+        Assert.Equal(car, "Mustang")
         
     [<Fact>]
     let IgnoringValuesWithPatternMatching() =
@@ -50,7 +50,7 @@ module ``about tuples`` =
         
         let _, animal, _ = items
         
-        Assert.Equal(animal, __)
+        Assert.Equal(animal, "dog")
     
     (* NOTE: pattern matching is found in many places
              throughout F#, and we'll revisit it again later *)
@@ -63,8 +63,8 @@ module ``about tuples`` =
         let squared, cubed = squareAndCube 3.0
         
         
-        Assert.Equal(squared, __)
-        Assert.Equal(cubed, __)
+        Assert.Equal(squared, 9.0)
+        Assert.Equal(cubed, 27.0)
     
     (* THINK ABOUT IT: Is there really more than one return value?
                        What type does the squareAndCube function
@@ -77,4 +77,4 @@ module ``about tuples`` =
             
         let result = squareAndCube 3.0
        
-        Assert.Equal(result, __)
+        Assert.Equal(result, (9.0, 27.0))

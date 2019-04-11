@@ -27,7 +27,7 @@ module ``about pipelining`` =
         let evens = List.filter isEven numbers
         let result = List.map square evens
 
-        Assert.Equal<IEnumerable<int>>(result, __)
+        Assert.Equal<IEnumerable<int>>(result, [0; 4; 16])
 
     [<Fact>]
     let SquareEvenNumbersWithParens() =
@@ -39,7 +39,7 @@ module ``about pipelining`` =
 
         let result = List.map square (List.filter isEven numbers)
 
-        Assert.Equal<IEnumerable<int>>(result, __)
+        Assert.Equal<IEnumerable<int>>(result, [0; 4; 16])
 
     [<Fact>]
     let SquareEvenNumbersWithPipelineOperator() =
@@ -51,7 +51,7 @@ module ``about pipelining`` =
             |> List.filter isEven
             |> List.map square
         
-        Assert.Equal<IEnumerable<int>>(result, __)
+        Assert.Equal<IEnumerable<int>>(result, [0; 4; 16])
 
     [<Fact>]
     let HowThePipeOperatorIsDefined() =
@@ -63,4 +63,4 @@ module ``about pipelining`` =
             |> List.filter isEven
             |> List.map square
 
-        Assert.Equal<IEnumerable<int>>(result, __)
+        Assert.Equal<IEnumerable<int>>(result, [0; 4; 16])

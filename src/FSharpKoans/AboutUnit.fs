@@ -17,7 +17,7 @@ module ``about unit`` =
             ()
 
         let x = sendData "data"
-        Assert.Equal(x, __) //Don't overthink this. Note also the value "()" displays as "null" in some cases.
+        Assert.Equal(x, ()) //Don't overthink this. Note also the value "()" displays as "null" in some cases.
 
     [<Fact>]
     let ParameterlessFunctionsTakeUnitAsTheirArgument() =
@@ -25,4 +25,4 @@ module ``about unit`` =
             "hello"
 
         let result = sayHello()
-        Assert.Equal(result, __)
+        Assert.Equal(result, "hello")

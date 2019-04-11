@@ -42,14 +42,14 @@ module ``about classes`` =
     let ClassesCanHaveProperties() =
         let zombie = new Zombie()
 
-        Assert.Equal(zombie.FavoriteFood, __)
+        Assert.Equal(zombie.FavoriteFood, "brains")
 
     [<Fact>]
     let ClassesCanHaveMethods() =
         let zombie = new Zombie()
 
         let result = zombie.Eat "brains"
-        Assert.Equal(result, __)
+        Assert.Equal(result, "mmmmmmmmmmmmmmm")
     
     [<Fact>]
     let ClassesCanHaveConstructors() =
@@ -57,15 +57,15 @@ module ``about classes`` =
         let person = new Person("Shaun")
 
         let result = person.Speak()
-        Assert.Equal(result, __)
+        Assert.Equal(result, "Hi my name is Shaun")
 
     [<Fact>]
     let ClassesCanHaveLetBindingsInsideThem() =
         let zombie = new Zombie2()
 
         let result = zombie.Eat "chicken"
-        Assert.Equal(result, __)
-
+        Assert.Equal(result, "grrrrrrrr")
+        
         (* TRY IT: Can you access the let bound value Zombie2.favoriteFood
                    outside of the class definition? *)
 
@@ -74,8 +74,8 @@ module ``about classes`` =
         let person = new Person2("Shaun")
 
         let firstPhrase = person.Speak()
-        Assert.Equal(firstPhrase, __)
+        Assert.Equal(firstPhrase, "Hi my name is Shaun")
 
         person.Name <- "Shaun of the Dead"
         let secondPhrase = person.Speak()
-        Assert.Equal(secondPhrase, __)
+        Assert.Equal(secondPhrase, "Hi my name is Shaun of the Dead")

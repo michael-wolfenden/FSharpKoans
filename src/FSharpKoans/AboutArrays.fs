@@ -14,9 +14,9 @@ module ``about arrays`` =
     let CreatingArrays() =
         let fruits = [| "apple"; "pear"; "peach"|]
 
-        Assert.Equal(fruits.[0], __)
-        Assert.Equal(fruits.[1], __)
-        Assert.Equal(fruits.[2], __)
+        Assert.Equal(fruits.[0], "apple")
+        Assert.Equal(fruits.[1], "pear")
+        Assert.Equal(fruits.[2], "peach")
 
     [<Fact>]
     let ArraysAreDotNetArrays() =
@@ -34,7 +34,7 @@ module ``about arrays`` =
         let fruits = [| "apple"; "pear" |]
         fruits.[1] <- "peach"
 
-        Assert.Equal<IEnumerable<string>>(fruits, __)
+        Assert.Equal<IEnumerable<string>>(fruits, [| "apple"; "peach" |])
 
     [<Fact>]
     let YouCanCreateArraysWithComprehensions() =
@@ -42,7 +42,7 @@ module ``about arrays`` =
             [| for i in 0..10 do 
                    if i % 2 = 0 then yield i |]
 
-        Assert.Equal<IEnumerable<int>>(numbers, __)
+        Assert.Equal<IEnumerable<int>>(numbers, [| 0; 2; 4; 6; 8; 10 |])
 
     [<Fact>]
     let ThereAreAlsoSomeOperationsYouCanPerformOnArrays() =
@@ -52,5 +52,5 @@ module ``about arrays`` =
         let original = [| 0..5 |]
         let result = Array.map cube original
 
-        Assert.Equal<IEnumerable<int>>(original, __)
-        Assert.Equal<IEnumerable<int>>(result, __)
+        Assert.Equal<IEnumerable<int>>(original, [| 0..5 |])
+        Assert.Equal<IEnumerable<int>>(result, [| 0; 1; 8; 27; 64; 125 |])

@@ -27,7 +27,7 @@ module ``about asserts`` =
     [<Fact>]   // test
     let AssertExpectation() =
         let expected_value = 1 + 1
-        let actual_value = __ //start by changing this line
+        let actual_value = 2 //start by changing this line
      
         Assert.Equal(expected_value, actual_value)
 
@@ -35,4 +35,4 @@ module ``about asserts`` =
 
     [<Fact>]
     let FillInValues() =
-        Assert.Equal((1 + 1), __)
+        Assert.Equal((1 + 1), 2)

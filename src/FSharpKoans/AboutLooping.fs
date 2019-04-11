@@ -19,7 +19,7 @@ module ``about looping`` =
         for value in values do
             sum <- sum + value
 
-        Assert.Equal(sum, __)
+        Assert.Equal(sum, 55)
        
     [<Fact>]
     let LoopingWithExpressions() =
@@ -28,7 +28,7 @@ module ``about looping`` =
         for i = 1 to 5 do
             sum <- sum + i
 
-        Assert.Equal(sum, __)
+        Assert.Equal(sum, 15)
 
     [<Fact>]
     let LoopingWithWhile() =
@@ -37,7 +37,7 @@ module ``about looping`` =
         while sum < 10 do
             sum <- sum + sum
 
-        Assert.Equal(sum, __)
+        Assert.Equal(sum, 16)
 
     (* NOTE: While these looping constructs can come in handy from time to time,
              it's often better to use a more functional approach for looping

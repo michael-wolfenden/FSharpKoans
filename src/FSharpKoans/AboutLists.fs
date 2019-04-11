@@ -20,9 +20,9 @@ module ``about lists`` =
         //Note: The list data type in F# is a singly linked list, 
         //      so indexing elements is O(n). 
         
-        Assert.Equal(list.Head, __)
-        Assert.Equal<IEnumerable<string>>(list.Tail, __)
-        Assert.Equal(list.Length, __)
+        Assert.Equal(list.Head, "apple")
+        Assert.Equal<IEnumerable<string>>(list.Tail, ["pear"; "grape"; "peach"])
+        Assert.Equal(list.Length, 4)
 
         (* .NET developers coming from other languages may be surprised
            that F#'s list type is not the same as the base class library's
@@ -41,8 +41,8 @@ module ``about lists`` =
         //Note: "::" is known as "cons"
         
         Assert.Equal<IEnumerable<string>>(["apple"; "pear"; "grape"; "peach"], third)
-        Assert.Equal<IEnumerable<string>>(second, __)
-        Assert.Equal<IEnumerable<string>>(first, __)
+        Assert.Equal<IEnumerable<string>>(second, ["pear"; "grape"; "peach"])
+        Assert.Equal<IEnumerable<string>>(first, ["grape"; "peach"])
 
         //What happens if you uncomment the following?
 
@@ -58,8 +58,8 @@ module ``about lists`` =
         let first = ["apple"; "pear"; "grape"]
         let second = first @ ["peach"]
 
-        Assert.Equal<IEnumerable<string>>(first, __)
-        Assert.Equal<IEnumerable<string>>(second, __)
+        Assert.Equal<IEnumerable<string>>(first, ["apple"; "pear"; "grape"])
+        Assert.Equal<IEnumerable<string>>(second, ["apple"; "pear"; "grape"; "peach"])
 
     (* THINK ABOUT IT: In general, what performs better for building lists, 
        :: or @? Why?
@@ -72,21 +72,21 @@ module ``about lists`` =
     let CreatingListsWithARange() =
         let list = [0..4]
         
-        Assert.Equal(list.Head, __)
-        Assert.Equal<IEnumerable<int>>(list.Tail, __)
+        Assert.Equal(list.Head, 0)
+        Assert.Equal<IEnumerable<int>>(list.Tail, [1..4])
         
     [<Fact>]
     let CreatingListsWithComprehensions() =
         let list = [for i in 0..4 do yield i ]
                             
-        Assert.Equal<IEnumerable<int>>(list, __)
+        Assert.Equal<IEnumerable<int>>(list, [0..4])
     
     [<Fact>]
     let ComprehensionsWithConditions() =
         let list = [for i in 0..10 do 
                         if i % 2 = 0 then yield i ]
                             
-        Assert.Equal<IEnumerable<int>>(list, __)
+        Assert.Equal<IEnumerable<int>>(list, [0; 2; 4; 6; 8; 10])
 
     [<Fact>]
     let TransformingListsWithMap() =
@@ -96,8 +96,8 @@ module ``about lists`` =
         let original = [0..5]
         let result = List.map square original
 
-        Assert.Equal<IEnumerable<int>>(original, __)
-        Assert.Equal<IEnumerable<int>>(result, __)
+        Assert.Equal<IEnumerable<int>>(original, [0..5])
+        Assert.Equal<IEnumerable<int>>(result, [0; 1; 4; 9; 16; 25])
 
     [<Fact>]
     let FilteringListsWithFilter() =
@@ -107,8 +107,8 @@ module ``about lists`` =
         let original = [0..5]
         let result = List.filter isEven original
 
-        Assert.Equal<IEnumerable<int>>(original, __)
-        Assert.Equal<IEnumerable<int>>(result, __)
+        Assert.Equal<IEnumerable<int>>(original, [0..5])
+        Assert.Equal<IEnumerable<int>>(result, [0; 2; 4])
 
     [<Fact>]
     let DividingListsWithPartition() =
@@ -118,8 +118,8 @@ module ``about lists`` =
         let original = [0..5]
         let result1, result2 = List.partition isOdd original
         
-        Assert.Equal<IEnumerable<int>>(result1, __)
-        Assert.Equal<IEnumerable<int>>(result2, __)
+        Assert.Equal<IEnumerable<int>>(result1, [1; 3; 5])
+        Assert.Equal<IEnumerable<int>>(result2, [0; 2; 4])
 
     (* Note: There are many other useful methods in the List module. Check them
        via intellisense in Visual Studio by typing '.' after List, or online at

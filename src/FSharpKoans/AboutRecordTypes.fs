@@ -19,19 +19,19 @@ module ``about record types`` =
     let RecordsHaveProperties() =
         let mario = { Name = "Mario"; Occupation = "Plumber"; }
 
-        Assert.Equal(mario.Name, __)
-        Assert.Equal(mario.Occupation, __)
+        Assert.Equal(mario.Name, "Mario")
+        Assert.Equal(mario.Occupation, "Plumber")
 
     [<Fact>]
     let CreatingFromAnExistingRecord() =
         let mario = { Name = "Mario"; Occupation = "Plumber"; }
         let luigi = { mario with Name = "Luigi"; }
 
-        Assert.Equal(mario.Name, __)
-        Assert.Equal(mario.Occupation, __)
+        Assert.Equal(mario.Name, "Mario")
+        Assert.Equal(mario.Occupation, "Plumber")
 
-        Assert.Equal(luigi.Name, __)
-        Assert.Equal(luigi.Occupation, __)
+        Assert.Equal(luigi.Name, "Luigi")
+        Assert.Equal(luigi.Occupation, "Plumber")
 
     [<Fact>]
     let ComparingRecords() =
@@ -51,8 +51,8 @@ module ``about record types`` =
             else
                 "he is still kind of a koopa"
 
-        Assert.Equal(koopaComparison, __)
-        Assert.Equal(bowserComparison, __)
+        Assert.Equal(koopaComparison, "all the koopas are pretty much the same")
+        Assert.Equal(bowserComparison, "he is still kind of a koopa")
 
     [<Fact>]
     let YouCanPatternMatchAgainstRecords() =
@@ -65,6 +65,6 @@ module ``about record types`` =
             | { Occupation = "Plumber" } -> "good guy"
             | _ -> "bad guy"
 
-        Assert.Equal((determineSide mario), __)
-        Assert.Equal((determineSide luigi), __)
-        Assert.Equal((determineSide bowser), __)
+        Assert.Equal((determineSide mario), "good guy")
+        Assert.Equal((determineSide luigi), "good guy")
+        Assert.Equal((determineSide bowser), "bad guy")

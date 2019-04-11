@@ -30,17 +30,17 @@ module ``about modules`` =
     [<Fact>]
     let ModulesCanContainValuesAndTypes() =
 
-        Assert.Equal(MushroomKingdom.Mario.Name, __)
-        Assert.Equal(MushroomKingdom.Mario.Occupation, __)
+        Assert.Equal(MushroomKingdom.Mario.Name, "Mario")
+        Assert.Equal(MushroomKingdom.Mario.Occupation, "Plumber")
         
         let moduleType = MushroomKingdom.Mario.GetType()
-        Assert.Equal(moduleType, typeof<FILL_ME_IN>)
+        Assert.Equal(moduleType, typeof<MushroomKingdom.Character>)
 
     [<Fact>]
     let ModulesCanContainFunctions() =
         let superMario = MushroomKingdom.powerUp MushroomKingdom.Mario
 
-        Assert.Equal(superMario.Power, __)
+        Assert.Equal(superMario.Power, Some MushroomKingdom.Power.Mushroom)
 
 (* NOTE: In previous sections, you've seen modules like List and Option that 
          contain useful functions for dealing with List types and Option types
@@ -50,10 +50,8 @@ open MushroomKingdom
 
 module ``about opened modules`` =
     
-    let inline __<'T> : 'T = failwith "Seek wisdom by filling in the __"
-
     [<Fact>]
     let OpenedModulesBringTheirContentsInScope() = 
-        Assert.Equal(Mario.Name, __)
-        Assert.Equal(Mario.Occupation, __)
-        Assert.Equal(Mario.Power, __)
+        Assert.Equal(Mario.Name, "Mario")
+        Assert.Equal(Mario.Occupation, "Plumber")
+        Assert.Equal(Mario.Power, None)

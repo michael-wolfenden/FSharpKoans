@@ -31,7 +31,7 @@ module ``about filtering`` =
             names
             |> List.filter (fun name -> name.StartsWith( "A" ))
      
-        Assert.Equal<IEnumerable<string>>(actual_names, [ __ ])
+        Assert.Equal<IEnumerable<string>>(actual_names, [ "Alice" ])
 
         //Or passing a function to filter
         let startsWithTheLetterB (s: string) =
@@ -41,7 +41,7 @@ module ``about filtering`` =
             names
             |> List.filter startsWithTheLetterB
 
-        Assert.Equal<IEnumerable<string>>(namesBeginningWithB, [ __ ])
+        Assert.Equal<IEnumerable<string>>(namesBeginningWithB, [ "Bob" ])
 
     [<Fact>]
     let FindingJustOneItem() =
@@ -52,7 +52,7 @@ module ``about filtering`` =
 
         let actual_name = 
             names
-            |> List.find (fun name -> name = __ )
+            |> List.find (fun name -> name = "Bob" )
             
         //??? What would happen if there are 2 Bobs in the List?
 
@@ -70,8 +70,8 @@ module ``about filtering`` =
             names
             |> List.tryFind (fun name -> name = "Zelda" )
             
-        Assert.Equal(eve.IsSome, __)
-        Assert.Equal(zelda.IsSome, __)
+        Assert.Equal(eve.IsSome, true)
+        Assert.Equal(zelda.IsSome, false)
 
     [<Fact>]
     let ChoosingItemsFromAList() =
@@ -83,7 +83,7 @@ module ``about filtering`` =
             numbers
             |> List.choose someIfEven
 
-        Assert.Equal<IEnumerable<int>>(evenNumbers, [ __ ])
+        Assert.Equal<IEnumerable<int>>(evenNumbers, [ 2 ])
 
         //You can also use the "id" function on types of 'a option list 
         //"id" will return just those that are "Some"
@@ -94,7 +94,7 @@ module ``about filtering`` =
             |> List.choose id
 
         //Notice the type of namesWithValue is 'string list', whereas optionNames is 'string option list'
-        Assert.Equal<IEnumerable<string>>(namesWithValue, [ __ ])
+        Assert.Equal<IEnumerable<string>>(namesWithValue, [ "Alice" ])
 
     [<Fact>]
     let PickingItemsFromAList() =
@@ -106,7 +106,7 @@ module ``about filtering`` =
             numbers
             |> List.pick someIfEven
 
-        Assert.Equal(firstEven, __)
+        Assert.Equal(firstEven, 6)
 
         //As with choose, you can also use the "id" function on types of 'a option list 
         //to return just those that are "Some"
@@ -116,6 +116,6 @@ module ``about filtering`` =
             optionNames
             |> List.pick id
 
-        Assert.Equal(firstNameWithValue , __)
+        Assert.Equal(firstNameWithValue , "Alice")
 
         //There is also a tryPick which works like tryFind, returning "None" instead of throwing an exception.

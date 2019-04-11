@@ -18,8 +18,8 @@ module ``about dot net collections`` =
         fruits.Add("apple")
         fruits.Add("pear")
  
-        Assert.Equal(fruits.[0], __)
-        Assert.Equal(fruits.[1], __)
+        Assert.Equal(fruits.[0], "apple")
+        Assert.Equal(fruits.[1], "pear")
 
     [<Fact>]
     let CreatingDotNetDictionaries() =
@@ -28,8 +28,8 @@ module ``about dot net collections`` =
         addressBook.["Chris"] <- "Ann Arbor"
         addressBook.["SkillsMatter"] <- "London"
 
-        Assert.Equal(addressBook.["Chris"], __)
-        Assert.Equal(addressBook.["SkillsMatter"], __)
+        Assert.Equal(addressBook.["Chris"], "Ann Arbor")
+        Assert.Equal(addressBook.["SkillsMatter"], "London")
 
     [<Fact>]
     let YouUseCombinatorsWithDotNetTypes() =
@@ -48,15 +48,15 @@ module ``about dot net collections`` =
         //      that you can combine to perform operations on types implementing 
         //      seq/IEnumerable.
 
-        Assert.Equal(verboseBook.[0], __)
-        Assert.Equal(verboseBook.[1], __)
+        Assert.Equal(verboseBook.[0], "Name: Chris - City: Ann Arbor")
+        Assert.Equal(verboseBook.[1], "Name: SkillsMatter - City: London")
 
     [<Fact>]
     let SkippingElements() =
         let original = [0..5]
         let result = Seq.skip 2 original
         
-        Assert.Equal<IEnumerable<int>>(result, __)
+        Assert.Equal<IEnumerable<int>>(result, [2..5])
 
     [<Fact>]
     let FindingTheMax() =
@@ -70,7 +70,7 @@ module ``about dot net collections`` =
 
         let result = Seq.max values
         
-        Assert.Equal(result, __)
+        Assert.Equal(result, 20)
     
     [<Fact>]
     let FindingTheMaxUsingACondition() =
@@ -80,4 +80,4 @@ module ``about dot net collections`` =
         let names = [| "Harry"; "Lloyd"; "Nicholas"; "Mary"; "Joe"; |]
         let result = Seq.maxBy getNameLength names 
         
-        Assert.Equal(result, __)
+        Assert.Equal(result, "Nicholas")

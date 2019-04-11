@@ -56,9 +56,20 @@ module ``about the stock example`` =
     // Feel free to add extra [<Fact>] members here to write
     // tests for yourself along the way. You can also try 
     // using the F# Interactive window to check your progress.
+    let splitCommas (x:string) =
+        x.Split([|','|])
 
+    let recordForDay (day:string) =
+        let toDouble x = System.Double.Parse(x, System.Globalization.CultureInfo.InvariantCulture)
+        let parts = splitCommas day
+        (parts.[0], toDouble(parts.[1]), toDouble(parts.[4]))
+    
     [<Fact>]
     let YouGotTheAnswerCorrect() =
-        let result =  __
+        let (day, _, _) = 
+            stockData
+            |> List.tail
+            |> List.map recordForDay
+            |> List.maxBy (fun (_, dayOpen, dayClose) -> abs(dayClose - dayOpen))
         
-        Assert.Equal("2012-03-13", result)
+        Assert.Equal("2012-03-13", day)

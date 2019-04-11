@@ -22,18 +22,18 @@ module ``about option types`` =
     let OptionTypesMightContainAValue() =
         let someValue = Some 10
         
-        Assert.Equal(someValue.IsSome, __)
-        Assert.Equal(someValue.IsNone, __)
-        Assert.Equal(someValue.Value, __)
+        Assert.Equal(someValue.IsSome, true)
+        Assert.Equal(someValue.IsNone, false)
+        Assert.Equal(someValue.Value, 10)
 
     [<Fact>]
     let OrTheyMightNot() =
         let noValue = None
 
-        Assert.Equal(noValue.IsSome, __)
-        Assert.Equal(noValue.IsNone, __)
+        Assert.Equal(noValue.IsSome, false)
+        Assert.Equal(noValue.IsNone, true)
         
-        Assert.Throws<FILL_IN_THE_EXCEPTION>(fun () -> noValue.Value |> ignore)
+        Assert.Throws<System.NullReferenceException>(fun () -> noValue.Value |> ignore)
 
     [<Fact>]
     let UsingOptionTypesWithPatternMatching() =
@@ -54,8 +54,8 @@ module ``about option types`` =
             | Some score -> translate score
             | None -> "Unknown"
 
-        Assert.Equal((getScore chronoTrigger), __)
-        Assert.Equal((getScore halo), __)
+        Assert.Equal((getScore chronoTrigger), "Great")
+        Assert.Equal((getScore halo), "Unknown")
 
     [<Fact>]
     let ProjectingValuesFromOptionTypes() =
@@ -68,5 +68,5 @@ module ``about option types`` =
             |> Option.map (fun score -> if score > 3 then "play it" else "don't play")
 
         //HINT: look at the return type of the decide on function
-        Assert.Equal((decideOn chronoTrigger), __)
-        Assert.Equal((decideOn halo), __)
+        Assert.Equal((decideOn chronoTrigger), Some "play it")
+        Assert.Equal((decideOn halo), None)

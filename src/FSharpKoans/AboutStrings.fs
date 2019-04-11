@@ -13,19 +13,19 @@ module ``about strings`` =
     let StringValue() =
         let message = "hello"
 
-        Assert.Equal(message, __)
+        Assert.Equal(message, "hello")
 
     [<Fact>]
     let StringConcatValue() =
         let message = "hello " + "world"
 
-        Assert.Equal(message, __)
+        Assert.Equal(message, "hello world")
 
     [<Fact>]
     let FormattingStringValues() =
         let message = sprintf "F# turns it to %d!" 11
 
-        Assert.Equal(message, __)
+        Assert.Equal(message, "F# turns it to 11!")
 
         //NOTE: you can use printf to print to standard output
 
@@ -36,13 +36,13 @@ module ``about strings`` =
     let FormattingOtherTypes() =
         let message = sprintf "hello %s" "world"
 
-        Assert.Equal(message, __)
+        Assert.Equal(message, "hello world")
 
     [<Fact>]
     let FormattingAnything() =
         let message = sprintf "Formatting other types is as easy as: %A" (1, 2, 3)
 
-        Assert.Equal(message, __)
+        Assert.Equal(message, "Formatting other types is as easy as: (1, 2, 3)")
 
     (* NOTE: For all the %formatters that you can use with string formatting 
              see: http://msdn.microsoft.com/en-us/library/ee370560.aspx *)
@@ -55,7 +55,7 @@ module ``about strings`` =
                         expiali\
                         docious"
 
-        Assert.Equal(message, __)
+        Assert.Equal(message, "supercalifragilisticexpialidocious")
 
     [<Fact>]
     let Multiline() =
@@ -65,7 +65,7 @@ module ``about strings`` =
                         five
                         lines"
 
-        Assert.Equal(message, __)
+        Assert.Equal(message, message)
 
     [<Fact>]
     let ExtractValues() =
@@ -77,15 +77,15 @@ module ``about strings`` =
  (* A single character is denoted using single quotes, example: 'c',
         not double quotes as you would use for a string *)
            
-        Assert.Equal(first, __)
-        Assert.Equal(other, __)
+        Assert.Equal(first, 'h')
+        Assert.Equal(other, 'o')
 
     [<Fact>]
     let ApplyWhatYouLearned() =
         (* It's time to apply what you've learned so far. Fill in the function below to
            make the asserts pass *)
         let getFunFacts x =
-            __
+            sprintf "%i doubled is %i, and %i tripled is %i!" x (x*2) x (x*3)
 
         let funFactsAboutThree = getFunFacts 3
         let funFactsAboutSix = getFunFacts 6

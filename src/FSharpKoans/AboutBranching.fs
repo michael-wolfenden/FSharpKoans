@@ -18,7 +18,7 @@ module ``about branching`` =
                 "it's odd!"
                 
         let result = isEven 2                
-        Assert.Equal(result, __)
+        Assert.Equal(result, "it's even!")
     
     [<Fact>]
     let IfStatementsReturnValues() =
@@ -33,7 +33,7 @@ module ``about branching`` =
             else
                 "no problem here"
 
-        Assert.Equal(result, __)
+        Assert.Equal(result, "no problem here")
 
     [<Fact>]
     let BranchingWithAPatternMatch() =
@@ -45,8 +45,8 @@ module ``about branching`` =
         let result1 = isApple "apple"
         let result2 = isApple ""
         
-        Assert.Equal(result1, __)
-        Assert.Equal(result2, __)
+        Assert.Equal(result1, true)
+        Assert.Equal(result2, false)
     
     [<Fact>]
     let UsingTuplesWithIfStatementsQuicklyBecomesClumsy() =
@@ -63,8 +63,8 @@ module ``about branching`` =
         let person1 = ("Chris", "steak")
         let person2 = ("Dave", "veggies")
         
-        Assert.Equal((getDinner person1), __)
-        Assert.Equal((getDinner person2), __)
+        Assert.Equal((getDinner person1), "Chris wants 'em some steak")
+        Assert.Equal((getDinner person2), "Dave doesn't want red meat")
         
     [<Fact>]
     let PatternMatchingIsNicer() =
@@ -79,5 +79,5 @@ module ``about branching`` =
         let person1 = ("Bob", "fish")
         let person2 = ("Sally", "Burger")
         
-        Assert.Equal((getDinner person1), __)
-        Assert.Equal((getDinner person2), __)
+        Assert.Equal((getDinner person1), "Bob doesn't want red meat")
+        Assert.Equal((getDinner person2), "Sally wants 'em some Burger")

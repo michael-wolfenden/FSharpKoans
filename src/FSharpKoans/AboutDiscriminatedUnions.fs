@@ -33,7 +33,7 @@ module ``about discriminated unions`` =
 
         let choice = Mustard
 
-        Assert.Equal((toColor choice), __)
+        Assert.Equal((toColor choice), "yellow")
 
         (* TRY IT: What happens if you remove a case from the above pattern 
                    match? *)
@@ -51,5 +51,5 @@ module ``about discriminated unions`` =
         let bourbonResult = saySomethingAboutYourFavorite <| Bourbon "Maker's Mark"
         let numberResult = saySomethingAboutYourFavorite <| Number 7
         
-        Assert.Equal(bourbonResult, __)
-        Assert.Equal(numberResult, __)
+        Assert.Equal(bourbonResult, "I prefer Bookers to Maker's Mark")
+        Assert.Equal(numberResult, "me too!")
