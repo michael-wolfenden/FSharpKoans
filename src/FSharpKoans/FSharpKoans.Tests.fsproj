@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="Helpers.fs" />
+      <Compile Include="AboutAsserts.fs" />
+      <Compile Include="AboutLet.fs" />
+      <Compile Include="AboutFunctions.fs" />
+      <Compile Include="AboutTheOrderOfEvaluation.fs" />
+      <Compile Include="AboutUnit.fs" />
+      <Compile Include="AboutTuples.fs" />
+      <Compile Include="AboutStrings.fs" />
+      <Compile Include="AboutBranching.fs" />
+      <Compile Include="AboutLists.fs" />
+      <Compile Include="AboutPipelining.fs" />
+      <Compile Include="AboutArrays.fs" />
+      <Compile Include="AboutLooping.fs" />
+      <Compile Include="MoreAboutFunctions.fs" />
+      <Compile Include="AboutDotNetCollections.fs" />
+      <Compile Include="AboutTheStockExample.fs" />
+      <Compile Include="AboutRecordTypes.fs" />
+      <Compile Include="AboutOptionTypes.fs" />
+      <Compile Include="AboutDiscriminatedUnions.fs" />
+      <Compile Include="AboutModules.fs" />
+      <Compile Include="AboutClasses.fs" />
+      <Compile Include="AboutFiltering.fs" />
+    </ItemGroup>
+
+</Project>
